@@ -5,8 +5,8 @@
 
 class Retangulo:
     def __init__(self, largura, altura):
-       self.__largura = largura
-       self.__altura = altura
+       self.largura = largura
+       self.altura = altura
     
     @property
     def largura(self):
@@ -20,7 +20,8 @@ class Retangulo:
             
     @property
     def altura(self):
-        return self.__altura 
+        return self._altura 
+    @altura.setter
     def altura(self, valor):
          if isinstance(valor, (int, float)) and valor > 0:
             self._altura = valor
@@ -30,7 +31,13 @@ class Retangulo:
 
     @property
     def area(self):
-        return self._largura * self.__altura 
+        return self.largura * self.altura 
     
-
+retangulo = Retangulo(3,7)
+print("Área do  retângulo:", retangulo.area)
+    
+try:
+    retangulo.area = 18
+except AttributeError as e:
+    print("Erro ao tentar definir a área diretamente:", e)
 
