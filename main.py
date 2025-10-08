@@ -28,7 +28,6 @@ class Retangulo:
          else:
              raise  ValueError("A altura deve ser maior que zero.")
          
-
     @property
     def area(self):
         return self.largura * self.altura 
